@@ -6,7 +6,7 @@ describe "Log out flow" do
     user = create(:user)
     visit root_path
     click_link 'Sign In'
-
+    
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
 
