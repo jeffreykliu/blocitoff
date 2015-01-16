@@ -56,4 +56,4 @@ gem 'spring',        group: :development
 gem 'bootstrap-sass' #Twitter Bootstrap, CSS styling
 gem 'devise' #Devise, authentication
 gem 'figaro' #Figaro, handles environmental variables
-
+gem 'faker'  #Faker, fake data
