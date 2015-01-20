@@ -1,9 +1,5 @@
 class ItemsController < ApplicationController
-  
-  def new
-    @list = current_user.list
-    @item = Item.new
-  end
+  respond_to :html, :js
 
   def create
     @list = current_user.list
@@ -16,6 +12,21 @@ class ItemsController < ApplicationController
     else
       flash[:error] = "Error saving item. Please try again."
       redirect_to @list
+    end
+  end
+
+  def destroy
+    @list = current_user.list
+    @item = @list.items.find(params[:id])
+
+    if @item.destroy
+      flash[:notice] = "Item was removed."
+    else
+      flash[:error] = "Item couldn't be deleted. Try again."
+    end
+ 
+    respond_with(@item) do |format|
+      format.html { redirect_to @list }
     end
   end
 
