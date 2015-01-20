@@ -12,22 +12,24 @@ describe ListsController do
 
   describe '#create' do
     it "creates a list by the current user" do
-      expect( @user.list.find_by_list_id(@list.id) ).to be_nil
+      expect( @user.list ).to be_nil
 
-      list :create, { list_id: @list.id }
+      post :create, { list: {title: "Test"} }
 
-      expect( @user.list.find_by_list_id(@list.id) ).not_to be_nil
+      @user.reload
+      expect( @user.list ).not_to be_nil
     end
   end
 
   describe '#destroy' do
     it "destroys the list for the current user" do
-      list = @user.list.where(list: @list).create
-      expect( @user.list.find_by_list_id(@list.id) ).not_to be_nil
+      list = @user.create_list(title: "Whatever")
+      expect( @user.list ).not_to be_nil
 
       delete :destroy, { id: list.id }
 
-      expect( @user.list.find_by_list_id(@list.id) ).to be_nil
+      @user.reload
+      expect( @user.list ).to be_nil
     end
   end
 end

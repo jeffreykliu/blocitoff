@@ -1,4 +1,4 @@
-<div class="media">
+<div class="media" id="item-<%= item.id %>">
   <div class="media-body">
     <%= item.name %>
     <%= link_to "", [@list, item], method: :delete, remote: true, class: 'glyphicon glyphicon-ok' %>    

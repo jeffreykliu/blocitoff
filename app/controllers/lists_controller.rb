@@ -33,8 +33,21 @@ class ListsController < ApplicationController
       redirect_to @list
     else
       flash[:error] = "Error saving list. Please try again."
-      render :new
+      render :edit
     end
+  end
+
+  def destroy
+    @list = current_user.list
+    
+    if @list.destroy?
+      flash[:notice] = "List deleted."
+      redirect_to new_list_url
+    else
+      flash[:error] = "Error deleting list. Please try again."
+      render :edit
+    end
+
   end
 
   private
