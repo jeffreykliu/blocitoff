@@ -1,6 +1,9 @@
 <div class="media" id="item-<%= item.id %>">
   <div class="media-body">
     <%= item.name %>
-    <%= link_to "", [@list, item], method: :delete, remote: true, class: 'glyphicon glyphicon-ok' %>    
+    &nbsp;
+    <%= link_to "", [@list, item], method: :delete, remote: true, class: 'glyphicon glyphicon-ok' %>
+    &nbsp;   
+    <%= item.days_left.to_s + " days remaining" %> 
   </div>
 </div>  

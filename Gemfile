@@ -57,3 +57,5 @@ gem 'bootstrap-sass' #Twitter Bootstrap, CSS styling
 gem 'devise' #Devise, authentication
 gem 'figaro' #Figaro, handles environmental variables
 gem 'faker'  #Faker, fake data
+gem 'omniauth' #Omniauth, various authentication
+gem 'omniauth-facebook' #OmniAuth Facebook, FB authentication

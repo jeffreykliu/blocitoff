@@ -33,7 +33,7 @@ items = Item.all
 # Create an admin user
 admin = User.new(
   name:     'Admin User',
-  email:    'jeffreykliu@gmail.com',
+  email:    'jeffreykliu@chicagobooth.edu',
   password: 'helloworld',
 )
 admin.skip_confirmation!
